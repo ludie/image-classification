@@ -35,13 +35,17 @@ def creating_training_data():
     for category in CATEGORIES:
         path = os.path.join(DATADIR, category)
         class_num = CATEGORIES.index(category)
+        i = 0
         for img in os.listdir(path):
+            i += 1
             try:
                 img_array = cv2.imread(os.path.join(path,img), cv2.IMREAD_GRAYSCALE)
                 new_array = cv2.resize(img_array, (100,100))
                 training_data.append([new_array, class_num])
             except Exception:
                 pass
+            if i == 50:
+                break
             
 creating_training_data()
 print(len(training_data))
