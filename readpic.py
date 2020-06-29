@@ -45,6 +45,7 @@ def creating_training_data():
             
 creating_training_data()
 print(len(training_data))
+np.random.shuffle(training_data)
 
 
 #Jeff Edited
